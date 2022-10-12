@@ -1,0 +1,6 @@
+dependencies {
+    compileOnly project(':processor')
+    testCompileOnly project(':processor')
+    annotationProcessor project(':processor')
+    testAnnotationProcessor project(':processor')
+}
