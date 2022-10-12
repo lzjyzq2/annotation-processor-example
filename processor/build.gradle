@@ -1,13 +1,15 @@
 compileJava {
-    options.compilerArgs.addAll([
-            '-proc:none',
-            '--add-exports',
-            'jdk.compiler/com.sun.tools.javac.api=settile.processor',
-            '--add-exports',
-            'jdk.compiler/com.sun.tools.javac.util=settile.processor',
-            '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=settile.processor',
-            '--add-exports', 'jdk.compiler/com.sun.tools.javac.tree=settile.processor',
-            '--add-exports', 'jdk.compiler/com.sun.tools.javac.processing=settile.processor']
-    )
+    if (!JavaVersion.current().toString().startsWith("1.8")) {
+        options.compilerArgs.addAll([
+                '-proc:none',
+                '--add-exports',
+                'jdk.compiler/com.sun.tools.javac.api=settile.processor',
+                '--add-exports',
+                'jdk.compiler/com.sun.tools.javac.util=settile.processor',
+                '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=settile.processor',
+                '--add-exports', 'jdk.compiler/com.sun.tools.javac.tree=settile.processor',
+                '--add-exports', 'jdk.compiler/com.sun.tools.javac.processing=settile.processor']
+        )
+    }
     options.verbose(true)
 }
